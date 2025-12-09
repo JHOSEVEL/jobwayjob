@@ -1,0 +1,21 @@
+/* Minimal stylesheet to avoid 404 for /index.css
+   Tailwind is loaded via CDN in index.html, this file can hold
+   project-specific overrides and small helpers. */
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f8fafc;
+}
+
+/* Small helpers used across the site */
+.container { max-width: 1200px; margin-left: auto; margin-right: auto; }
+
+/* Accessibility: focus outlines */
+:focus { outline: 3px solid rgba(34,197,94,0.25); outline-offset: 2px; }
