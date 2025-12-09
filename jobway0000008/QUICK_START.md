@@ -137,7 +137,7 @@ App abre em `http://localhost:3000`
 3. ✅ Verifique mensagens de erro
 
 ### Próximo (Backend)
-1. 🔄 Conectar com Supabase
+1. 🔄 (Opcional) Conectar com backend/DB para persistência
 2. 🔄 Salvar vagas reais
 3. 🔄 Salvar perfil candidato
 

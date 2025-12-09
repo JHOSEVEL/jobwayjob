@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { ViewState, UserType } from '../types';
 import { Button, InputField } from '../components/UIComponents';
 import { LogIn, User, Building, AlertCircle } from 'lucide-react';
-import { supabase, getCurrentUserProfile } from '../services/supabaseClient';
+import { auth, getCurrentUserProfile } from '../services/backend';
 
 interface LoginProps {
   setCurrentView: (view: ViewState) => void;
@@ -22,7 +22,7 @@ export const Login: React.FC<LoginProps> = ({ setCurrentView, setIsLoggedIn, set
     setErrorMsg('');
     
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await auth.signInWithPassword({
         email,
         password,
       });

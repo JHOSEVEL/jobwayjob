@@ -127,9 +127,9 @@
 │  └─────────────────────────────────────────────────────┘   │
 │                                                               │
 └─────────────────────────────────────────────────────────────┘
-                           ↓
-                    SUPABASE (Futuro)
-                  Save and Load Real Data
+                                                     ↓
+                                 (Persistência Futuro - opcional)
+                             Save and Load Real Data via backend
 ```
 
 ---

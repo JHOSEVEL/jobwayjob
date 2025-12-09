@@ -4,7 +4,7 @@ import { JobPosition } from '../types';
 import { Button, Badge, Card, CardHeader, CardTitle, CardContent } from '../components/UIComponents';
 import { List, Map as MapIcon, Briefcase, X, Sparkles, Brain, Heart, MapPin, Search, ArrowRight, CheckCircle, Building2, Globe } from 'lucide-react';
 import { getDistanceFromLatLonInKm } from '../services/geminiService';
-import { getJobs } from '../services/supabaseClient';
+import { getJobs } from '../services/backend';
 
 // --- Mock Data (Santa Catarina Context) ---
 const MOCK_JOBS_SC: JobPosition[] = [

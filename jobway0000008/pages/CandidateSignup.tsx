@@ -5,7 +5,7 @@ import { Button, InputField } from '../components/UIComponents';
 import { Upload, ArrowLeft, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { parseResume } from '../services/geminiService';
 import { processLocationFromCep } from '../services/locationService';
-import { createProfile } from '../services/supabaseClient';
+import { createProfile } from '../services/backend';
 
 export const CandidateSignup: React.FC<any> = ({ candidateData, setCandidateData, setCurrentView, setIsLoggedIn, setUserType }) => {
   const [step, setStep] = useState(1);
@@ -159,7 +159,7 @@ export const CandidateSignup: React.FC<any> = ({ candidateData, setCandidateData
                 <Button variant="secondary" onClick={()=>setStep(1)}>Voltar</Button>
                 <Button onClick={async () => {
                     try {
-                      // tenta salvar perfil no Supabase (MVP: upsert por email)
+                      // save to neutral backend stub (no external DB)
                       await createProfile({
                         name: candidateData.name,
                         email: candidateData.email,
@@ -169,7 +169,7 @@ export const CandidateSignup: React.FC<any> = ({ candidateData, setCandidateData
                         coordinates: candidateData.coordinates
                       });
                     } catch(e) {
-                      console.error('Erro ao salvar perfil no Supabase:', e);
+                      console.error('Erro ao salvar perfil:', e);
                     } finally {
                       setIsLoggedIn(true); setUserType(UserType.CANDIDATE); setCurrentView(ViewState.CANDIDATE_DASHBOARD);
                     }

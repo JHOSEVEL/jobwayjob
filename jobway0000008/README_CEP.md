@@ -158,7 +158,7 @@ pages/CandidateDashboard.tsx
 3. Experimente com mobile
 
 ### Depois (Recomendado)
-1. Conecte com Supabase (vejo `SUPABASE_SETUP.md`)
+1. Conecte com um backend/DB real se desejar persistência (opcional)
 2. Salve dados reais em vez de mock
 3. Implemente mais features
 

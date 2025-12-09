@@ -127,8 +127,8 @@ Pronto:        ✅ SIM!
 
 ## 🎯 Próximos Passos (Opcionais)
 
-1. **Supabase** - Salvar dados reais
-   - Veja: `SUPABASE_SETUP.md`
+1. **Persistência (opcional)** - Salvar dados reais em um backend
+   - Atualmente o projeto usa stubs locais; integrar um banco real é opcional.
 
 2. **Mais Cidades** - Expandir SC
    - Edite: `services/locationService.ts`

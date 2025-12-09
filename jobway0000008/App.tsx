@@ -8,7 +8,7 @@ import {
   TrendingUp, BarChart3, Upload, Gauge, Calendar, Bell, 
   Clock, DollarSign, ArrowRight, Heart, Globe 
 } from 'lucide-react';
-import { supabase, getCurrentUserProfile } from './services/supabaseClient';
+import { getCurrentUserProfile } from './services/backend';
 
 // Import Pages
 import { Login } from './pages/Login';
@@ -507,50 +507,14 @@ const App: React.FC = () => {
     phone: ''
   });
 
-  // Check Supabase Session on Mount
+  // Initialize app (no external auth)
   useEffect(() => {
-    const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (session) {
-        setIsLoggedIn(true);
-        // Fetch User Profile to determine type (Candidate/Company)
-        const profile = await getCurrentUserProfile();
-        if (profile) {
-            setUserType(profile.user_type as UserType);
-            if (profile.user_type === 'CANDIDATE') {
-                setCandidateData(prev => ({ ...prev, ...profile }));
-                setCurrentView(ViewState.CANDIDATE_DASHBOARD);
-            } else {
-                setCompanyData(prev => ({ ...prev, ...profile }));
-                setCurrentView(ViewState.COMPANY_DASHBOARD);
-            }
-        }
-      }
-      setIsLoading(false);
-    };
-
-    checkSession();
-
-    // Listen for changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
-      if (event === 'SIGNED_IN' && session) {
-        setIsLoggedIn(true);
-        const profile = await getCurrentUserProfile();
-        if (profile) {
-             setUserType(profile.user_type as UserType);
-             // Stay on current view if already set (prevent redirect loops)
-        }
-      } else if (event === 'SIGNED_OUT') {
-        setIsLoggedIn(false);
-        setCurrentView(ViewState.LANDING);
-      }
-    });
-
-    return () => subscription.unsubscribe();
+    // No external session check — app uses local/demo flows
+    setIsLoading(false);
   }, []);
 
   const handleLogout = async () => {
-    await supabase.auth.signOut();
+    // Clear local auth state
     setIsLoggedIn(false);
     setCurrentView(ViewState.LANDING);
   };

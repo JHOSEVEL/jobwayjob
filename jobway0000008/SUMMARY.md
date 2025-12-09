@@ -218,12 +218,10 @@ Brusque • Chapecó • Criciúma • Jaraguá do Sul • Lages
 
 ## 🔮 PRÓXIMOS PASSOS
 
-1. **Supabase** - Salvar dados reais
+1. **Persistência (opcional)** - Salvar dados reais em um backend
 2. **Mais features** - Filtros, notificações
 3. **Testes** - Unitários, E2E
 4. **Deploy** - Produção
-
-Veja: `SUPABASE_SETUP.md`
 
 ---
 
