@@ -1,0 +1,7 @@
+{
+  "name": "JOBWAY0000008",
+  "description": "A próxima geração de recrutamento conectando talentos e empresas no Brasil via IA e Geolocalização.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
